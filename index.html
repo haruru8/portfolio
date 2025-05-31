@@ -4,14 +4,290 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Name - Software Engineer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 0;
+            color: white;
+        }
+
+        .profile-img {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #4a5568;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .tech-category {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+        }
+
+        .tech-category h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .skill-item {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            border-color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .skill-name {
+            font-weight: bold;
+            color: #2d3748;
+            font-size: 1.1rem;
+        }
+
+        .skill-level {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .skill-comment {
+            color: #4a5568;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 5px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-card h3 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .project-card p {
+            color: #4a5568;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-tech-item {
+            background: #e2e8f0;
+            color: #4a5568;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .about-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+
+        .skills-highlight {
+            background: #f0f4ff;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        .skills-highlight h3 {
+            color: #2d3748;
+            margin-bottom: 10px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section {
+                padding: 25px;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <!-- ヒーローセクション -->
         <section class="hero">
             <div class="profile-img">👨‍💻</div>
-            <h1></h1>安西 晴哉
+            <h1>安西 晴哉</h1>
             <p class="subtitle">Software Engineer / Full Stack Developer</p>
             <p class="description">
                 もの作りが好きです
@@ -20,47 +296,106 @@
 
         <!-- 技術スタックセクション -->
         <section class="section">
-            <h2> 技術スタック</h2>
+            <h2>🚀 技術スタック</h2>
             <div class="tech-grid">
                 <div class="tech-category">
+                    <h3>プログラミング言語</h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">C</span>
+                                <span class="skill-level">基礎</span>
+                            </div>
+                            <div class="skill-comment">低レベルプログラミングとメモリ管理の基礎を学習</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">C++</span>
+                                <span class="skill-level">中級</span>
+                            </div>
+                            <div class="skill-comment">オブジェクト指向プログラミングとアルゴリズム実装に使用</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">C#</span>
+                                <span class="skill-level">中級</span>
+                            </div>
+                            <div class="skill-comment">.NET環境でのアプリケーション開発経験あり</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-level">上級</span>
+                            </div>
+                            <div class="skill-comment">データ分析、機械学習、Webアプリ開発まで幅広く活用</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-level">中級</span>
+                            </div>
+                            <div class="skill-comment">オブジェクト指向設計とエンタープライズアプリケーション開発</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tech-category">
                     <h3>フロントエンド</h3>
-                    <div class="tech-list">
-                        <span class="tech-item">HTML5</span>
-                        <span class="tech-item">CSS3</span>
-                        <span class="tech-item">JavaScript</span>
-                        <span class="tech-item">React</span>
-                        <span class="tech-item">Vue.js</span>
-                        <span class="tech-item">TypeScript</span>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">HTML</span>
+                                <span class="skill-level">上級</span>
+                            </div>
+                            <div class="skill-comment">セマンティックなマークアップとアクセシビリティを重視</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">CSS</span>
+                                <span class="skill-level">上級</span>
+                            </div>
+                            <div class="skill-comment">レスポンシブデザインとモダンなレイアウト技術</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-level">上級</span>
+                            </div>
+                            <div class="skill-comment">ES6+の機能を活用したモダンな開発スタイル</div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="tech-category">
-                    <h3>バックエンド</h3>
-                    <div class="tech-list">
-                        <span class="tech-item">Node.js</span>
-                        <span class="tech-item">Python</span>
-                        <span class="tech-item">Java</span>
-                        <span class="tech-item">Express.js</span>
-                        <span class="tech-item">Django</span>
-                        <span class="tech-item">Spring Boot</span>
+                    <h3>バックエンド・データベース</h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Flask</span>
+                                <span class="skill-level">中級</span>
+                            </div>
+                            <div class="skill-comment">PythonでのWebアプリケーション開発フレームワーク</div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">SQL</span>
+                                <span class="skill-level">中級</span>
+                            </div>
+                            <div class="skill-comment">データベース設計とクエリ最適化の経験あり</div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="tech-category">
-                    <h3>データベース</h3>
-                    <div class="tech-list">
-                        <span class="tech-item">MySQL</span>
-                        <span class="tech-item">PostgreSQL</span>
-                        <span class="tech-item">MongoDB</span>
-                        <span class="tech-item">Redis</span>
-                    </div>
-                </div>
-                <div class="tech-category">
-                    <h3>ツール・その他</h3>
-                    <div class="tech-list">
-                        <span class="tech-item">Git</span>
-                        <span class="tech-item">Docker</span>
-                        <span class="tech-item">AWS</span>
-                        <span class="tech-item">Linux</span>
-                        <span class="tech-item">Figma</span>
+                    <h3>インフラ・ツール</h3>
+                    <div style="display: flex; flex-direction: column; gap: 15px;">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Linux</span>
+                                <span class="skill-level">中級</span>
+                            </div>
+                            <div class="skill-comment">サーバー管理とシェルスクリプトの作成が可能</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,30 +412,14 @@
                         リアルタイム同期機能とレスポンシブデザインを実装。
                     </p>
                     <div class="project-tech">
-                        <span class="project-tech-item">React</span>
-                        <span class="project-tech-item">Node.js</span>
-                        <span class="project-tech-item">MongoDB</span>
-                        <span class="project-tech-item">Socket.io</span>
+                        <span class="project-tech-item">Python</span>
+                        <span class="project-tech-item">Flask</span>
+                        <span class="project-tech-item">JavaScript</span>
+                        <span class="project-tech-item">HTML/CSS</span>
+                        <span class="project-tech-item">SQL</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="btn">Demo</a>
-                        <a href="#" class="btn">GitHub</a>
-                    </div>
-                </div>
-
-                <div class="project-card">
-                    <h3>モバイルアプリ名</h3>
-                    <p>
-                        日常の習慣をトラッキングするモバイルアプリ。
-                        直感的なUIと詳細な分析機能を提供。
-                    </p>
-                    <div class="project-tech">
-                        <span class="project-tech-item">React Native</span>
-                        <span class="project-tech-item">Firebase</span>
-                        <span class="project-tech-item">TypeScript</span>
-                    </div>
-                    <div class="project-links">
-                        <a href="#" class="btn">詳細</a>
                         <a href="#" class="btn">GitHub</a>
                     </div>
                 </div>
@@ -114,11 +433,28 @@
                     <div class="project-tech">
                         <span class="project-tech-item">Python</span>
                         <span class="project-tech-item">Pandas</span>
-                        <span class="project-tech-item">Plotly</span>
-                        <span class="project-tech-item">Streamlit</span>
+                        <span class="project-tech-item">SQL</span>
+                        <span class="project-tech-item">Flask</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="btn">Demo</a>
+                        <a href="#" class="btn">GitHub</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <h3>システム開発プロジェクト</h3>
+                    <p>
+                        C++とC#を使用したデスクトップアプリケーション。
+                        効率的なアルゴリズムとユーザーフレンドリーなUIを実現。
+                    </p>
+                    <div class="project-tech">
+                        <span class="project-tech-item">C++</span>
+                        <span class="project-tech-item">C#</span>
+                        <span class="project-tech-item">Java</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn">詳細</a>
                         <a href="#" class="btn">GitHub</a>
                     </div>
                 </div>
@@ -131,7 +467,8 @@
             <div class="about-content">
                 <p>
                     大学でコンピュータサイエンスを学び、在学中から様々な個人プロジェクトに取り組んできました。
-                    特にWebアプリケーション開発とデータ分析に興味があり、
+                    C言語から始まり、C++、C#、Java、Pythonと段階的にプログラミングスキルを習得。
+                    特にPythonでのWebアプリケーション開発とデータ分析に興味があり、
                     ユーザーの問題を解決する実用的なソリューションの開発を得意としています。
                 </p>
                 
@@ -139,7 +476,8 @@
                     <h3>🎯 現在学習中・興味のある分野</h3>
                     <p>
                         クラウドアーキテクチャ（AWS/GCP）、マイクロサービス設計、
-                        機械学習・AI技術、DevOps・CI/CD、モバイル開発
+                        機械学習・AI技術、DevOps・CI/CD、モバイル開発、
+                        React/Node.jsを使ったモダンなフルスタック開発
                     </p>
                 </div>
 
@@ -162,7 +500,5 @@
             </div>
         </section>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>
