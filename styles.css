@@ -1,0 +1,399 @@
+/* ===== 基本設定 ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --tertiary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --accent-gradient: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    --text-primary: #333;
+    --text-secondary: #666;
+    --text-light: #555;
+    --white-transparent: rgba(255, 255, 255, 0.95);
+    --white-semi-transparent: rgba(255, 255, 255, 0.2);
+    --shadow-light: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 20px 40px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0 20px 40px rgba(0, 0, 0, 0.2);
+    --border-radius-small: 15px;
+    --border-radius-medium: 20px;
+    --border-radius-large: 25px;
+    --border-radius-pill: 30px;
+    --transition-default: all 0.3s ease;
+    --transition-transform: transform 0.3s ease;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: var(--primary-gradient);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ===== ヒーローセクション ===== */
+.hero {
+    background: var(--white-transparent);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-medium);
+    padding: 60px 40px;
+    text-align: center;
+    margin-bottom: 40px;
+    box-shadow: var(--shadow-medium);
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: var(--primary-gradient);
+    margin: 0 auto 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+    color: white;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    transition: var(--transition-transform);
+}
+
+.profile-img:hover {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero .subtitle {
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.hero .description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===== セクション共通スタイル ===== */
+.section {
+    background: var(--white-transparent);
+    backdrop-filter: blur(10px);
+    border-radius: var(--border-radius-medium);
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-light);
+    animation: fadeInUp 0.8s ease-out;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== 技術スタックセクション ===== */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.tech-category {
+    background: var(--secondary-gradient);
+    border-radius: var(--border-radius-small);
+    padding: 25px;
+    color: white;
+    transition: var(--transition-transform);
+    cursor: pointer;
+}
+
+.tech-category:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+.tech-category h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.tech-item {
+    background: var(--white-semi-transparent);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    backdrop-filter: blur(5px);
+    transition: var(--transition-default);
+}
+
+.tech-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* ===== プロジェクトセクション ===== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.project-card {
+    background: var(--tertiary-gradient);
+    border-radius: var(--border-radius-small);
+    padding: 30px;
+    color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: var(--shadow-strong);
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.project-tech-item {
+    background: var(--white-semi-transparent);
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    transition: var(--transition-default);
+}
+
+.project-tech-item:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    background: var(--white-semi-transparent);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius-large);
+    text-decoration: none;
+    transition: var(--transition-default);
+    backdrop-filter: blur(5px);
+    font-weight: 500;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* ===== About Meセクション ===== */
+.about-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skills-highlight {
+    background: var(--accent-gradient);
+    padding: 30px;
+    border-radius: var(--border-radius-small);
+    margin: 30px 0;
+    text-align: center;
+    transition: var(--transition-transform);
+}
+
+.skills-highlight:hover {
+    transform: translateY(-5px);
+}
+
+.skills-highlight h3 {
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.skills-highlight p {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* ===== コンタクトセクション ===== */
+.contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.contact-link {
+    background: var(--primary-gradient);
+    color: white;
+    padding: 15px 30px;
+    border-radius: var(--border-radius-pill);
+    text-decoration: none;
+    transition: var(--transition-default);
+    font-weight: bold;
+}
+
+.contact-link:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-strong);
+}
+
+/* ===== アニメーション ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* ===== レスポンシブデザイン ===== */
+@media (max-width: 768px) {
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .section {
+        padding: 25px;
+    }
+
+    .tech-grid,
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .contact-link {
+        width: 200px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+
+    .hero {
+        padding: 30px 15px;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .section h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* ===== ユーティリティクラス ===== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scale-on-hover {
+    transition: var(--transition-transform);
+}
+
+.scale-on-hover:hover {
+    transform: scale(1.05);
+}
